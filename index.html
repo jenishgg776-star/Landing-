@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flirty Chat App</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body {
+    height:100%;
+    font-family:'Poppins', sans-serif;
+    background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)),
+                url('https://i.postimg.cc/gjJ2Q2mM/IMG-20251006-085818-580.jpg') center/cover no-repeat;
+    overflow-x:hidden;
+}
+
+/* Container */
+.container {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 20px 80px 20px;
+    color:#fff;
+}
+
+/* Heading */
+h1 {
+    font-family:'Great Vibes', cursive;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    color: #ff1a1a;
+    text-shadow: 0 0 20px #ff4d4d;
+    margin-bottom:20px;
+    padding:20px 40px;
+    border:2px solid #ff1a1a;
+    border-radius:20px;
+    animation: pulse 2s infinite;
+}
+
+/* Paragraphs */
+p {
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    margin:12px 0;
+    line-height:1.6;
+    max-width:650px;
+    padding:10px 20px;
+    border:1px solid #ff4d4d;
+    border-radius:15px;
+    animation: fadeInUp 1s ease forwards;
+    opacity:0;
+}
+p:nth-child(2){animation-delay:0.3s;}
+p:nth-child(3){animation-delay:0.6s;}
+p:nth-child(4){animation-delay:0.9s;}
+p:nth-child(5){animation-delay:1.2s;}
+
+/* Download button */
+.download-btn {
+    margin-top: 40px;
+    padding: 20px 60px;
+    font-size: clamp(1.2rem,4vw,1.8rem);
+    font-weight:700;
+    color:#fff;
+    background: linear-gradient(45deg,#ff0000,#ff4d4d);
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    text-decoration:none;
+    box-shadow:0 0 50px #ff1a1a,0 0 100px #ff4d4d;
+    transition: all 0.3s ease;
+    animation:pulse 2s infinite;
+}
+.download-btn:hover {
+    transform: scale(1.15) rotate(-2deg);
+    box-shadow:0 0 140px #ff4d4d,0 0 200px #ff9999;
+}
+
+/* Full-screen Chrome modal */
+#openChromeModal {
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.95);
+    z-index:9999;
+    color:#fff;
+    text-align:center;
+    font-family:'Poppins', sans-serif;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:20px;
+}
+#openChromeModal h2 {
+    font-size:2rem;
+    margin-bottom:20px;
+    color:#ff4d4d;
+}
+#openChromeModal p {
+    font-size:1.2rem;
+    margin-bottom:30px;
+}
+#openChromeModal button {
+    padding:20px 50px;
+    font-size:1.5rem;
+    background:#00c853;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    color:#fff;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Flirty Chat</h1>
+    <p> 🔐 100% private & secure</p>
+    <p> 💋 Flirt, tease & connect with singles near you</p>
+    <p> 🎥 Private videos, sexy video calls & chat rooms</p>
+    <p> 💘 Make new friends, meet & have fun anytime, anywhere</p>
+    <p> 💌 Join thousands already enjoying flirty conversations!</p>
+
+    <a class="download-btn" href="https://rebrand.ly/1fa096" target="_blank">
+        Download Now
+    </a>
+</div>
+
+<!-- Full-screen Chrome modal -->
+<div id="openChromeModal">
+    <h2>⚠ Better Experience</h2>
+    <p>For security & full functionality, open this page in Chrome.</p>
+    <button onclick="openInChrome()">Open in Chrome</button>
+    <p style="font-size:12px;margin-top:15px;">iPhone users: Tap ⋮ → Open in Safari</p>
+</div>
+
+<script>
+function isInAppBrowser() {
+    var ua = navigator.userAgent || "";
+    return (
+        ua.includes("Instagram") ||
+        ua.includes("FBAN") ||
+        ua.includes("FBAV") ||
+        ua.includes("FB_IAB")
+    );
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    if (isInAppBrowser()) {
+        setTimeout(function () {
+            document.getElementById("openChromeModal").style.display = "flex";
+        }, 2000); // show after 2s
+    }
+});
+
+// WORKING button: opens system browser
+function openInChrome() {
+    var url = window.location.href;
+    window.open(url, "_blank"); // opens in default system browser
+}
+</script>
+
+</body>
+</html>
